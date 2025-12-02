@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Shreedevi Parihar</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#C5A028',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-zinc-900 text-white font-sans antialiased" x-data="{ 
+    authenticated: false, 
+    password: '', 
+    login() {
+        if (this.password === 'admin123') {
+            this.authenticated = true;
+            this.$nextTick(() => {
+                initCharts();
+            });
+        } else {
+            alert('Incorrect Password');
+        }
+    }
+}">
+
+    <!-- Login Screen -->
+    <div x-show="!authenticated" class="min-h-screen flex items-center justify-center bg-black">
+        <div class="bg-zinc-800 p-8 rounded-lg shadow-2xl w-full max-w-md border border-white/10">
+            <h1 class="text-2xl font-bold text-gold-400 mb-6 text-center">Admin Login</h1>
+            <form @submit.prevent="login" class="space-y-4">
+                <div>
+                    <label class="block text-gray-400 text-sm mb-2">Password</label>
+                    <input type="password" x-model="password"
+                        class="w-full bg-black border border-white/20 rounded px-4 py-3 text-white focus:border-gold-400 focus:outline-none transition-colors"
+                        placeholder="Enter password">
+                </div>
+                <button type="submit"
+                    class="w-full py-3 bg-gold-400 text-black font-bold rounded hover:bg-white transition-colors">
+                    Access Dashboard
+                </button>
+                <p class="text-xs text-center text-gray-500 mt-4">Default: admin123</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div x-show="authenticated" x-cloak class="min-h-screen flex flex-col md:flex-row">
+
+        <!-- Sidebar -->
+        <aside class="w-full md:w-64 bg-black border-r border-white/10 flex-shrink-0">
+            <div class="p-6">
+                <h2 class="text-xl font-bold text-gold-400">Shreedevi Parihar</h2>
+                <p class="text-xs text-gray-500">Admin Panel</p>
+            </div>
+            <nav class="px-4 space-y-2">
+                <a href="#" class="block px-4 py-2 bg-zinc-800 text-white rounded">Dashboard</a>
+                <a href="#"
+                    class="block px-4 py-2 text-gray-400 hover:text-white hover:bg-zinc-800 rounded transition-colors">Inquiries</a>
+                <a href="#"
+                    class="block px-4 py-2 text-gray-400 hover:text-white hover:bg-zinc-800 rounded transition-colors">Workshop
+                    Registrations</a>
+                <a href="#"
+                    class="block px-4 py-2 text-gray-400 hover:text-white hover:bg-zinc-800 rounded transition-colors">Settings</a>
+                <a href="index.html"
+                    class="block px-4 py-2 text-gray-400 hover:text-white hover:bg-zinc-800 rounded transition-colors mt-8 border-t border-white/10 pt-4">Back
+                    to Website</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-y-auto">
+
+            <header class="flex justify-between items-center mb-8">
+                <h1 class="text-2xl font-bold">Overview</h1>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm text-gray-400">Last updated: Just now</span>
+                    <div
+                        class="w-10 h-10 bg-gold-400 rounded-full flex items-center justify-center text-black font-bold">
+                        SP</div>
+                </div>
+            </header>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-zinc-800 p-6 rounded-lg border border-white/5">
+                    <h3 class="text-gray-400 text-sm mb-2">Total Site Visits</h3>
+                    <p class="text-3xl font-bold text-white">12,450</p>
+                    <p class="text-green-400 text-xs mt-2">↑ 12% from last month</p>
+                </div>
+                <div class="bg-zinc-800 p-6 rounded-lg border border-white/5">
+                    <h3 class="text-gray-400 text-sm mb-2">New Inquiries</h3>
+                    <p class="text-3xl font-bold text-white">48</p>
+                    <p class="text-green-400 text-xs mt-2">↑ 5 new today</p>
+                </div>
+                <div class="bg-zinc-800 p-6 rounded-lg border border-white/5">
+                    <h3 class="text-gray-400 text-sm mb-2">Workshop Signups</h3>
+                    <p class="text-3xl font-bold text-white">156</p>
+                    <p class="text-gold-400 text-xs mt-2">Revenue: ₹7.8L</p>
+                </div>
+                <div class="bg-zinc-800 p-6 rounded-lg border border-white/5">
+                    <h3 class="text-gray-400 text-sm mb-2">Pending Bookings</h3>
+                    <p class="text-3xl font-bold text-white">8</p>
+                    <p class="text-yellow-400 text-xs mt-2">Action required</p>
+                </div>
+            </div>
+
+            <!-- Charts & Tables -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <!-- Chart -->
+                <div class="bg-zinc-800 p-6 rounded-lg border border-white/5">
+                    <h3 class="text-lg font-bold mb-6">Traffic Overview</h3>
+                    <canvas id="trafficChart" height="200"></canvas>
+                </div>
+
+                <!-- Recent Registrations -->
+                <div class="bg-zinc-800 p-6 rounded-lg border border-white/5">
+                    <h3 class="text-lg font-bold mb-6">Recent Workshop Registrations</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm text-gray-400">
+                            <thead class="bg-black/20 text-gray-200 uppercase text-xs">
+                                <tr>
+                                    <th class="px-4 py-3">Name</th>
+                                    <th class="px-4 py-3">Status</th>
+                                    <th class="px-4 py-3">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/5">
+                                <tr>
+                                    <td class="px-4 py-3 text-white">Priya Sharma</td>
+                                    <td class="px-4 py-3"><span
+                                            class="px-2 py-1 bg-green-500/20 text-green-400 rounded text-xs">Paid</span>
+                                    </td>
+                                    <td class="px-4 py-3">Dec 01</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-white">Sneha Patil</td>
+                                    <td class="px-4 py-3"><span
+                                            class="px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded text-xs">Pending</span>
+                                    </td>
+                                    <td class="px-4 py-3">Dec 01</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-white">Anjali Deshmukh</td>
+                                    <td class="px-4 py-3"><span
+                                            class="px-2 py-1 bg-green-500/20 text-green-400 rounded text-xs">Paid</span>
+                                    </td>
+                                    <td class="px-4 py-3">Nov 30</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-white">Riya Gupta</td>
+                                    <td class="px-4 py-3"><span
+                                            class="px-2 py-1 bg-green-500/20 text-green-400 rounded text-xs">Paid</span>
+                                    </td>
+                                    <td class="px-4 py-3">Nov 29</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        function initCharts() {
+            const ctx = document.getElementById('trafficChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Visitors',
+                        data: [65, 59, 80, 81, 56, 120, 150],
+                        borderColor: '#D4AF37',
+                        backgroundColor: 'rgba(212, 175, 55, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: '#9ca3af'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#9ca3af'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

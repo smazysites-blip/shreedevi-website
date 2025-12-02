@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Shreedevi Parihar</title>
+    <meta name="description"
+        content="Book your appointment with Shreedevi Parihar. Visit our studios in Manwat and Parbhani.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#C5A028',
+                            600: '#B08D1E',
+                        },
+                        maroon: {
+                            800: '#800000',
+                            900: '#600000',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-black text-white font-sans antialiased selection:bg-gold-400 selection:text-black">
+
+    <!-- Navigation -->
+    <nav x-data="{ mobileMenuOpen: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 20)"
+        :class="{ 'bg-black/90 backdrop-blur-md shadow-lg': scrolled, 'bg-black': !scrolled }"
+        class="fixed w-full z-50 transition-all duration-300 border-b border-white/10">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl md:text-3xl font-cinzel font-bold text-gold-400 tracking-wider">
+                    Shreedevi Parihar
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="hover:text-gold-400 transition-colors tracking-wide">Home</a>
+                    <a href="about.html" class="hover:text-gold-400 transition-colors tracking-wide">About</a>
+                    <a href="services.html" class="hover:text-gold-400 transition-colors tracking-wide">Services</a>
+                    <a href="bridal.html" class="hover:text-gold-400 transition-colors tracking-wide">Bridal</a>
+                    <a href="portfolio.html" class="hover:text-gold-400 transition-colors tracking-wide">Portfolio</a>
+                    <a href="workshops.html" class="hover:text-gold-400 transition-colors tracking-wide">Workshops</a>
+                    <a href="contact.html"
+                        class="px-6 py-2 border border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-black transition-all duration-300 rounded-sm uppercase text-sm tracking-widest">
+                        Contact
+                    </a>
+                </div>
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gold-400 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path x-show="mobileMenuOpen" x-cloak stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div x-show="mobileMenuOpen" x-cloak class="md:hidden bg-black border-t border-white/10 absolute w-full">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="index.html" class="hover:text-gold-400 block py-2 border-b border-white/5">Home</a>
+                <a href="about.html" class="hover:text-gold-400 block py-2 border-b border-white/5">About</a>
+                <a href="services.html" class="hover:text-gold-400 block py-2 border-b border-white/5">Services</a>
+                <a href="bridal.html" class="hover:text-gold-400 block py-2 border-b border-white/5">Bridal</a>
+                <a href="portfolio.html" class="hover:text-gold-400 block py-2 border-b border-white/5">Portfolio</a>
+                <a href="workshops.html" class="hover:text-gold-400 block py-2 border-b border-white/5">Workshops</a>
+                <a href="contact.html" class="text-gold-400 font-semibold block py-2">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-32 pb-16 bg-zinc-900 relative">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-serif text-white mb-4">Get in Touch</h1>
+            <p class="text-gray-400">We'd love to hear from you. Book your consultation today.</p>
+        </div>
+    </header>
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.6!2d76.7!3d19.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDEyJzAwLjAiTiA3NsKwNDInMDAuMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <!-- Footer (Same as Index) -->
+    <footer class="bg-black border-t border-white/10 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <a href="index.html" class="text-2xl font-cinzel font-bold text-gold-400 tracking-wider block mb-6">
+                        Shreedevi Parihar
+                    </a>
+                    <p class="text-gray-400 max-w-md mb-6">
+                        Professional celebrity and bridal makeup artist dedicated to making you look and feel like
+                        royalty on your special day.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-serif mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="about.html" class="hover:text-gold-400 transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-gold-400 transition-colors">Services Menu</a></li>
+                        <li><a href="bridal.html" class="hover:text-gold-400 transition-colors">Bridal Packages</a></li>
+                        <li><a href="workshops.html" class="hover:text-gold-400 transition-colors">Academy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-serif mb-6">Contact</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li>Manwat & Parbhani</li>
+                        <li>Maharashtra, India</li>
+                        <li><a href="mailto:contact@shreedeviparihar.com"
+                                class="hover:text-gold-400">contact@shreedeviparihar.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-600 text-sm">
+                <p>&copy; 2024 Shreedevi Parihar Makeover. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
