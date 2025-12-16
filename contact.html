@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Shreedevi Parihar</title>
+    <meta name="description"
+        content="Book your appointment with Shreedevi Parihar. Visit our studios in Manwat and Parbhani.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#C5A028',
+                            600: '#B08D1E',
+                        },
+                        maroon: {
+                            800: '#800000',
+                            900: '#600000',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGZ19NSPDE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-KGZ19NSPDE');
+    </script>
+</head>
+
+<body class="bg-black text-white font-sans antialiased selection:bg-gold-400 selection:text-black">
+
+    <!-- Navigation -->
+    <nav x-data="{ mobileMenuOpen: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 20)"
+        :class="{ 'bg-black/90 backdrop-blur-md shadow-lg': scrolled, 'bg-black': !scrolled }"
+        class="fixed w-full z-50 transition-all duration-300 border-b border-white/10">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl md:text-3xl font-cinzel font-bold text-gold-400 tracking-wider">
+                    Shreedevi Parihar
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="hover:text-gold-400 transition-colors tracking-wide">Home</a>
+                    <a href="about.html" class="hover:text-gold-400 transition-colors tracking-wide">About</a>
+                    <a href="services.html" class="hover:text-gold-400 transition-colors tracking-wide">Services</a>
+                    <a href="bridal.html" class="hover:text-gold-400 transition-colors tracking-wide">Bridal</a>
+                    <a href="portfolio.html" class="hover:text-gold-400 transition-colors tracking-wide">Portfolio</a>
+                    <a href="workshops.html" class="hover:text-gold-400 transition-colors tracking-wide">Workshops</a>
+                    <a href="contact.html"
+                        class="px-6 py-2 border border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-black transition-all duration-300 rounded-sm uppercase text-sm tracking-widest">
+                        Contact
+                    </a>
+                </div>
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gold-400 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path x-show="mobileMenuOpen" x-cloak stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div x-show="mobileMenuOpen" x-cloak class="md:hidden bg-black border-t border-white/10 absolute w-full">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="index.html" class="hover:text-gold-400 block py-2 border-b border-white/5">Home</a>
+                <a href="about.html" class="hover:text-gold-400 block py-2 border-b border-white/5">About</a>
+                <a href="services.html" class="hover:text-gold-400 block py-2 border-b border-white/5">Services</a>
+                <a href="bridal.html" class="hover:text-gold-400 block py-2 border-b border-white/5">Bridal</a>
+                <a href="portfolio.html" class="hover:text-gold-400 block py-2 border-b border-white/5">Portfolio</a>
+                <a href="workshops.html" class="hover:text-gold-400 block py-2 border-b border-white/5">Workshops</a>
+                <a href="contact.html" class="text-gold-400 font-semibold block py-2">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-32 pb-16 bg-zinc-900 relative">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-serif text-white mb-4">Get in Touch</h1>
+            <p class="text-gray-400">We'd love to hear from you. Book your consultation today.</p>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-black" x-data="{
+        formData: {
+            name: '',
+            phone: '',
+            service: 'Bridal Makeup',
+            date: '',
+            message: ''
+        },
+        submitting: false,
+        async submitContact() {
+            if (!this.formData.name || !this.formData.phone) {
+                alert('Please fill in your name and phone number.');
+                return;
+            }
+            this.submitting = true;
+
+            // GOOGLE SCRIPT URL
+            const scriptURL = 'https://script.google.com/macros/s/AKfycby0mBXO_R3WWxG4MsDkVnvjXkL_DsLLScgxwlK8shKYfSLrZebuuYi5ApEbc3eZTLoi6Q/exec';
+
+            // 1. Submit to Google Sheets
+            if (scriptURL === 'INSERT_YOUR_GOOGLE_SCRIPT_URL_HERE') {
+                alert('Please verify: You have not configured the Google Sheet Script URL yet.');
+                this.submitting = false;
+                return;
+            }
+
+            try {
+                await fetch(scriptURL, {
+                    method: 'POST',
+                    body: JSON.stringify({ type: 'contact', ...this.formData }),
+                    // Important: Use text/plain to avoid CORS preflight options request which GAS doesn't handle
+                     headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+                });
+            } catch (e) {
+                console.error('Google Sheet error', e);
+                // Continue to WhatsApp anyway
+            }
+
+            // 2. Redirect to WhatsApp
+            const text = `Hi, I am Interested in ${this.formData.service}.%0aName: ${this.formData.name}%0aPhone: ${this.formData.phone}%0aDate: ${this.formData.date}%0aMessage: ${this.formData.message}`;
+            const whatsappUrl = `https://wa.me/918888463656?text=${text}`;
+            
+            window.open(whatsappUrl, '_blank');
+            this.submitting = false;
+            
+            // Reset form
+            this.formData = { name: '', phone: '', service: 'Bridal Makeup', date: '', message: '' };
+        }
+    }">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+                <!-- Contact Form -->
+                <div class="bg-zinc-900 p-8 rounded-lg border border-white/10">
+                    <h2 class="text-3xl font-serif text-white mb-8">Send a Message</h2>
+                    <form @submit.prevent="submitContact()" class="space-y-6">
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-2">Your Name</label>
+                            <input type="text" x-model="formData.name" required
+                                class="w-full bg-black border border-white/20 rounded px-4 py-3 text-white focus:border-gold-400 focus:outline-none transition-colors"
+                                placeholder="Enter your full name">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-400 text-sm mb-2">Phone Number</label>
+                                <input type="tel" x-model="formData.phone" required
+                                    class="w-full bg-black border border-white/20 rounded px-4 py-3 text-white focus:border-gold-400 focus:outline-none transition-colors"
+                                    placeholder="+91 ...">
+                            </div>
+                            <div>
+                                <label class="block text-gray-400 text-sm mb-2">Preferred Service</label>
+                                <select x-model="formData.service"
+                                    class="w-full bg-black border border-white/20 rounded px-4 py-3 text-white focus:border-gold-400 focus:outline-none transition-colors">
+                                    <option>Bridal Makeup</option>
+                                    <option>Party Makeup</option>
+                                    <option>Engagement Look</option>
+                                    <option>Reception Look</option>
+                                    <option>Workshop/Academy</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-2">Preferred Date (Optional)</label>
+                            <input type="date" x-model="formData.date"
+                                class="w-full bg-black border border-white/20 rounded px-4 py-3 text-white focus:border-gold-400 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-2">Message</label>
+                            <textarea x-model="formData.message" rows="4"
+                                class="w-full bg-black border border-white/20 rounded px-4 py-3 text-white focus:border-gold-400 focus:outline-none transition-colors"
+                                placeholder="Tell us about your requirements..."></textarea>
+                        </div>
+                        <button type="submit" :disabled="submitting"
+                            class="w-full py-4 bg-gold-400 text-black font-bold uppercase tracking-widest hover:bg-white transition-all duration-300 transform hover:-translate-y-1">
+                            <span x-show="!submitting">Send Message</span>
+                            <span x-show="submitting">Sending...</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info & Map -->
+                <div class="space-y-8">
+                    <!-- Contact Info -->
+                    <div class="bg-zinc-900 p-8 rounded-lg border border-white/10">
+                        <h3 class="text-xl font-serif text-white mb-4">Contact Information</h3>
+                        <ul class="space-y-4 text-gray-400">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-gold-400 mt-1" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                    </path>
+                                </svg>
+                                <div>
+                                    <strong class="block text-white">Phone</strong>
+                                    <a href="tel:+918888463656" class="hover:text-gold-400 transition-colors">+91 88884
+                                        63656</a>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-gold-400 mt-1" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                                <div>
+                                    <strong class="block text-white">Email</strong>
+                                    <a href="mailto:contact@shreedeviparihar.com"
+                                        class="hover:text-gold-400 transition-colors">contact@shreedeviparihar.com</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="space-y-4" x-data="{ location: 'Manwat' }">
+                        <!-- Location Toggles -->
+                        <div class="flex gap-4">
+                            <button @click="location = 'Manwat'"
+                                :class="location === 'Manwat' ? 'bg-gold-400 text-black border-gold-400' : 'bg-transparent text-gray-400 border-white/20 hover:border-gold-400'"
+                                class="flex-1 py-3 px-6 border rounded-sm font-serif uppercase tracking-widest transition-all duration-300 text-sm">
+                                Manwat Studio
+                            </button>
+                            <button @click="location = 'Parbhani'"
+                                :class="location === 'Parbhani' ? 'bg-gold-400 text-black border-gold-400' : 'bg-transparent text-gray-400 border-white/20 hover:border-gold-400'"
+                                class="flex-1 py-3 px-6 border rounded-sm font-serif uppercase tracking-widest transition-all duration-300 text-sm">
+                                Parbhani Studio
+                            </button>
+                        </div>
+
+                        <!-- Dynamic Map -->
+                        <div class="h-80 bg-zinc-900 rounded-lg overflow-hidden border border-white/10 relative">
+                            <!-- Manwat Map -->
+                            <iframe x-show="location === 'Manwat'" x-transition:enter="transition ease-out duration-300"
+                                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                                src="https://maps.google.com/maps?q=Manwath,Maharashtra&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                            </iframe>
+
+                            <!-- Parbhani Map -->
+                            <iframe x-show="location === 'Parbhani'" x-cloak
+                                x-transition:enter="transition ease-out duration-300"
+                                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                                src="https://maps.google.com/maps?q=Shivaji+Nagar,Parbhani,Maharashtra&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                            </iframe>
+                        </div>
+
+                        <!-- Address Details Change based on selection -->
+                        <div class="text-sm text-gray-400 mt-2">
+                            <p x-show="location === 'Manwat'" x-transition>
+                                <span class="text-gold-400 font-bold">Selected:</span> Shreya Memsaab Makeup Studio,
+                                Main Market Area, Manwat
+                            </p>
+                            <p x-show="location === 'Parbhani'" x-cloak x-transition>
+                                <span class="text-gold-400 font-bold">Selected:</span> Orchid Makeup Studio, Shivaji
+                                Nagar, Parbhani
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as Index) -->
+    <footer class="bg-black border-t border-white/10 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <a href="index.html" class="text-2xl font-cinzel font-bold text-gold-400 tracking-wider block mb-6">
+                        Shreedevi Parihar
+                    </a>
+                    <p class="text-gray-400 max-w-md mb-6">
+                        Professional celebrity and bridal makeup artist dedicated to making you look and feel like
+                        royalty on your special day.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-serif mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="about.html" class="hover:text-gold-400 transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-gold-400 transition-colors">Services Menu</a></li>
+                        <li><a href="bridal.html" class="hover:text-gold-400 transition-colors">Bridal Packages</a></li>
+                        <li><a href="workshops.html" class="hover:text-gold-400 transition-colors">Academy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-serif mb-6">Contact</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li>Manwat & Parbhani</li>
+                        <li>Maharashtra, India</li>
+                        <li><a href="mailto:contact@shreedeviparihar.com"
+                                class="hover:text-gold-400">contact@shreedeviparihar.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-600 text-sm">
+                <p>&copy; 2024 Shreedevi Parihar Makeover. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridal Packages | Shreedevi Parihar</title>
+    <meta name="description"
+        content="Exclusive bridal makeup packages by Shreedevi Parihar. Royal, HD, and Airbrush makeup services for your wedding day.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#C5A028',
+                            600: '#B08D1E',
+                        },
+                        maroon: {
+                            800: '#800000',
+                            900: '#600000',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGZ19NSPDE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-KGZ19NSPDE');
+    </script>
+</head>
+
+<body class="bg-black text-white font-sans antialiased selection:bg-gold-400 selection:text-black">
+
+    <!-- Navigation -->
+    <nav x-data="{ mobileMenuOpen: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 20)"
+        :class="{ 'bg-black/90 backdrop-blur-md shadow-lg': scrolled, 'bg-black': !scrolled }"
+        class="fixed w-full z-50 transition-all duration-300 border-b border-white/10">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl md:text-3xl font-cinzel font-bold text-gold-400 tracking-wider">
+                    Shreedevi Parihar
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="hover:text-gold-400 transition-colors tracking-wide">Home</a>
+                    <a href="about.html" class="hover:text-gold-400 transition-colors tracking-wide">About</a>
+                    <a href="services.html" class="hover:text-gold-400 transition-colors tracking-wide">Services</a>
+                    <a href="bridal.html" class="text-gold-400 font-medium tracking-wide">Bridal</a>
+                    <a href="portfolio.html" class="hover:text-gold-400 transition-colors tracking-wide">Portfolio</a>
+                    <a href="workshops.html" class="hover:text-gold-400 transition-colors tracking-wide">Workshops</a>
+                    <a href="contact.html"
+                        class="px-6 py-2 border border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-black transition-all duration-300 rounded-sm uppercase text-sm tracking-widest">
+                        Contact
+                    </a>
+                </div>
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gold-400 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path x-show="mobileMenuOpen" x-cloak stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div x-show="mobileMenuOpen" x-cloak class="md:hidden bg-black border-t border-white/10 absolute w-full">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="index.html" class="hover:text-gold-400 block py-2 border-b border-white/5">Home</a>
+                <a href="about.html" class="hover:text-gold-400 block py-2 border-b border-white/5">About</a>
+                <a href="services.html" class="hover:text-gold-400 block py-2 border-b border-white/5">Services</a>
+                <a href="bridal.html" class="text-gold-400 block py-2 border-b border-white/5">Bridal</a>
+                <a href="portfolio.html" class="hover:text-gold-400 block py-2 border-b border-white/5">Portfolio</a>
+                <a href="workshops.html" class="hover:text-gold-400 block py-2 border-b border-white/5">Workshops</a>
+                <a href="contact.html" class="text-gold-400 font-semibold block py-2">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?q=80&w=2072&auto=format&fit=crop"
+                alt="Bridal Makeup" class="w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black"></div>
+        </div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-serif text-white mb-4">The Royal Bride</h1>
+            <p class="text-xl text-gold-400 font-light tracking-widest uppercase">Packages & Services</p>
+        </div>
+    </header>
+
+    <!-- Packages -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+
+                <!-- In Salon Package -->
+                <div class="relative group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-gold-400 to-yellow-600 rounded-lg blur opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+                    </div>
+                    <div class="relative bg-zinc-900 p-10 rounded-lg border border-white/10 h-full flex flex-col">
+                        <div class="mb-6">
+                            <h2 class="text-3xl font-serif text-white mb-2">In-Studio Bridal</h2>
+                            <p class="text-gray-400">Experience luxury at our Manwat or Parbhani studios.</p>
+                        </div>
+                        <div class="text-5xl font-serif text-gold-400 mb-8">₹25,000</div>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <span class="text-gold-400">✓</span> HD / Airbrush Makeup
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <span class="text-gold-400">✓</span> Premium Hair Styling
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <span class="text-gold-400">✓</span> Saree / Dupatta Draping
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <span class="text-gold-400">✓</span> Lashes & Accessories
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <span class="text-gold-400">✓</span> Duration: 1 hr 30 mins
+                            </li>
+                        </ul>
+                        <a href="contact.html"
+                            class="block w-full py-4 bg-white text-black text-center font-bold uppercase tracking-widest hover:bg-gold-400 transition-colors">Book
+                            Now</a>
+                    </div>
+                </div>
+
+                <!-- Venue Package -->
+                <div class="relative group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-maroon-800 to-red-900 rounded-lg blur opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+                    </div>
+                    <div class="relative bg-zinc-900 p-10 rounded-lg border border-white/10 h-full flex flex-col">
+                        <div class="mb-6">
+                            <h2 class="text-3xl font-serif text-white mb-2">Venue Bridal</h2>
+                            <p class="text-gray-400">We travel to your wedding location for ultimate comfort.</p>
+                        </div>
+                        <div class="text-5xl font-serif text-gold-400 mb-8">₹30,000</div>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <span class="text-gold-400">✓</span> HD / Airbrush Makeup
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <span class="text-gold-400">✓</span> Premium Hair Styling
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <span class="text-gold-400">✓</span> Saree / Dupatta Draping
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <span class="text-gold-400">✓</span> Lashes & Accessories
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <span class="text-gold-400">✓</span> Duration: 2 hrs
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <span class="text-gold-400">✓</span> Travel included (within city limits)
+                            </li>
+                        </ul>
+                        <a href="contact.html"
+                            class="block w-full py-4 bg-gold-400 text-black text-center font-bold uppercase tracking-widest hover:bg-white transition-colors">Book
+                            Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-zinc-900">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-serif mb-12">Why Choose Shreedevi Parihar?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="w-16 h-16 bg-gold-400/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl">✨</span>
+                    </div>
+                    <h3 class="text-xl font-serif mb-3">Premium Products</h3>
+                    <p class="text-gray-400 text-sm">We use only high-end international brands like MAC, Huda Beauty,
+                        Bobbi Brown, and NARS.</p>
+                </div>
+                <div>
+                    <div class="w-16 h-16 bg-gold-400/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl">🕰️</span>
+                    </div>
+                    <h3 class="text-xl font-serif mb-3">Punctuality</h3>
+                    <p class="text-gray-400 text-sm">We value your time. Our team ensures you are ready well before your
+                        ceremony starts.</p>
+                </div>
+                <div>
+                    <div class="w-16 h-16 bg-gold-400/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl">👑</span>
+                    </div>
+                    <h3 class="text-xl font-serif mb-3">Customized Looks</h3>
+                    <p class="text-gray-400 text-sm">Every bride is unique. We create looks that enhance your natural
+                        features and match your attire.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as Index) -->
+    <footer class="bg-black border-t border-white/10 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <a href="index.html" class="text-2xl font-cinzel font-bold text-gold-400 tracking-wider block mb-6">
+                        Shreedevi Parihar
+                    </a>
+                    <p class="text-gray-400 max-w-md mb-6">
+                        Professional celebrity and bridal makeup artist dedicated to making you look and feel like
+                        royalty on your special day.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-serif mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="about.html" class="hover:text-gold-400 transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-gold-400 transition-colors">Services Menu</a></li>
+                        <li><a href="bridal.html" class="text-gold-400">Bridal Packages</a></li>
+                        <li><a href="workshops.html" class="hover:text-gold-400 transition-colors">Academy</a></li>
+                </div>
+            </div>
+    </footer>
+
+</body>
+
+</html>
